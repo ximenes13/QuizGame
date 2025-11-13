@@ -1,7 +1,14 @@
+import os
+import logging
 from flask import Flask, render_template, jsonify
-import json, random
+import json
+import random
 
 app = Flask(__name__)
+
+# Suppress Werkzeug/Flask info logs except errors
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 def load_questions():
     with open("questions.json", "r", encoding="utf-8") as f:
@@ -18,4 +25,6 @@ def get_questions():
     return jsonify(random_questions)
 
 if __name__ == "__main__":
+    if os.environ.get('WERKZEUG_RUN_MAIN') == 'true':
+        print("Open your browser and go to: http://127.0.0.1:5000")
     app.run(debug=True)
