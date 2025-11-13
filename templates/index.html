@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Game</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Quiz Game</h1>
+
+    <!-- Progress bar -->
+    <div class="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+
+    <div id="quiz-container" class="card"></div>
+
+    <div class="buttons">
+      <button id="prev-btn" class="hidden">Previous</button>
+      <button id="next-btn">Next</button>
+      <button id="submit-btn" class="hidden">Submit</button>
+    </div>
+
+    <div id="result" class="hidden card">
+  <button id="redo-btn" class="hidden">Redo Quiz</button>
+</div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
